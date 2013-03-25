@@ -10,10 +10,11 @@ class UsersController < ApplicationController
 
 	def create
     	@user = User.new(params[:user])
-		binding.pry
+		# binding.pry
    	 	if @user.save
+        sign_in @user
    	 		flash[:success] = "Ban da tao tai khoan thanh cong!"
-      		redirect_to @user
+      	redirect_to @user
     	else
       		render 'new'
     	end
