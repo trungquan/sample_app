@@ -1,7 +1,15 @@
 <%= form_for(@micropost) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
+    <%= f.text_area :content, placeholder: "Compose new micropost...", 
+    						onkeydown: "countdown('micropost_content','output',140);",
+    						onkeyup:  "countdown('micropost_content','output',140);" %>
   </div>
+  <input id="output" readonly type="text" size="30" />
   <%= f.submit "Post", class: "btn btn-large btn-primary" %>
 <% end %>
+
+  <script type="text/javascript">
+  	countdown('micropost_content','output',140);
+  </script>
+

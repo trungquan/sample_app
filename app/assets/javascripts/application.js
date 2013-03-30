@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require_tree .
 //= require bootstrap
+
+
+function countdown(textArea, outPut, max){
+	textAreaId = document.getElementById(textArea);
+	document.getElementById(outPut).value = (max - textAreaId.value.length) + ' available.';
+}
